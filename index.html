@@ -169,6 +169,62 @@ footer{align-items:center}.fl{display:flex;gap:18px}.fl a,footer>a{text-decorati
 .contact{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .cbox{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
 .cbox b{font-weight:700}.cbox button{font:500 13px var(--body);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:5px 10px;cursor:pointer}
+
+html{scroll-behavior:smooth;scroll-padding-top:84px}::selection{background:var(--acc);color:#fff}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+.bc:hover,.clip:hover{background-image:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--acc) 14%,transparent),transparent 70%)}
+.live{display:grid;grid-template-columns:1fr 78px 1.15fr;align-items:center;gap:6px;max-width:860px;margin:0 auto;padding:34px 28px;border-radius:18px;border:1px solid var(--line);background:radial-gradient(60% 80% at 85% 0,color-mix(in srgb,var(--acc) 16%,transparent),transparent 70%),var(--panel);box-shadow:0 40px 90px -40px color-mix(in srgb,var(--acc) 60%,#000)}
+.lc{border-radius:16px;position:relative;overflow:hidden;min-height:250px}
+.lp{background:var(--panel2);border:1px solid var(--line);padding:14px 18px;text-align:center}
+.lp small{position:absolute;left:16px;top:12px;font:700 11px var(--body);color:var(--muted)}
+.lcv{width:104px;height:104px;margin:26px auto 14px;border-radius:9px;overflow:hidden;box-shadow:0 14px 30px -12px #000}.lcv img{width:100%;height:100%;display:block}
+.sw{transition:opacity .35s,transform .35s}.sw.o{opacity:0;transform:translateY(-7px);transition-duration:.15s}
+.lp .sw b{display:block;font:700 17px var(--body)}.lp .sw span{color:var(--sub);font-size:13px}
+.lb{height:5px;border-radius:9px;background:var(--line);margin:14px 0 6px;overflow:hidden}.lb i{display:block;height:100%;width:0;background:var(--acc)}
+.ltm{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.leq{display:flex;gap:4px;height:18px;align-items:flex-end;justify-content:center;margin-top:8px}.leq i{width:4px;border-radius:3px;background:var(--acc);animation:eq 1s ease-in-out infinite}.leq i:nth-child(2){animation-delay:-.3s}.leq i:nth-child(3){animation-delay:-.6s}.leq i:nth-child(4){animation-delay:-.15s}
+@keyframes eq{0%,100%{height:5px}50%{height:17px}}
+.lm{text-align:center}.lm img{width:42px;height:42px;display:block;margin:0 auto}.lw{position:relative;height:3px;margin:12px 0 20px;border-radius:3px;background:var(--line)}.lw u{position:absolute;top:-3px;left:0;width:9px;height:9px;border-radius:50%;background:var(--lav);box-shadow:0 0 12px 3px var(--acc);opacity:0}.lm span{font:700 11px var(--body);color:var(--sub)}
+.ld{background:#111214;border:1px solid #262833;color:#f2f3f5;text-align:left;font-family:var(--body)}
+.lbn{height:48px;background:var(--acc)}.lav{position:relative;width:62px;height:62px;margin:-26px 0 0 14px;border-radius:50%;background:#5865f2;border:5px solid #111214}.lav:after{content:"";position:absolute;right:-3px;bottom:-3px;width:17px;height:17px;border-radius:50%;background:#23a55a;border:4px solid #111214}
+.lnm{padding:6px 18px 0;font:700 21px/1.2 var(--body)}.lnm small{display:block;font:400 13px var(--body);color:#9aa0ab}
+.lac{margin:12px;padding:12px;border-radius:10px;background:#1c1d22}.lac h4{margin:0 0 10px;font:700 12px var(--body)}
+.lrow{display:flex;gap:12px}.lcv2{position:relative;width:72px;height:72px;flex:none}.lcv2>img{width:72px;height:72px;border-radius:7px;display:block}
+.lsp{position:absolute;left:45px;top:44px;width:35px;height:35px;border-radius:50%;background:#1c1d22}
+.ltx{min-width:0;flex:1}.ltx b{display:block;font:700 13px var(--body)}.ltx span{display:block;font-size:12px;color:#c8cad0}.ltx em{font-style:normal;font-size:11.5px;color:#8b8f99}
+.ldb{height:4px;border-radius:9px;background:#3a3b42;margin:8px 0 4px;overflow:hidden}.ldb i{display:block;height:100%;width:0;background:#e8e8ea}
+.ld .ltm{color:#8b8f99}
+@media(max-width:700px){.live{grid-template-columns:1fr;padding:20px 14px}.lc{min-height:0}.lw{display:none}.lm{padding:6px 0}}
+.clips{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.clip{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px 14px 20px}
+.clip h3{margin:16px 6px 6px;font:700 18px var(--body)}.clip p{margin:0 6px;color:var(--sub);font-size:15px}
+.cs{position:relative;height:150px;border-radius:12px;overflow:hidden;background:var(--panel2);border:1px solid var(--line)}
+.pill{position:absolute;left:14px;right:14px;top:14px;padding:8px 12px;border-radius:99px;background:#1c1d22;color:#f2f3f5;font:700 12px var(--body);display:flex;gap:8px;align-items:center}.pill:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--acc)}
+.c1 .win{position:absolute;inset:18px 24px 0;border-radius:10px 10px 0 0;background:var(--panel);border:1px solid var(--line);animation:wn 7s ease-in-out infinite}
+.c1 .win:before{content:"";position:absolute;left:10px;top:10px;width:40px;height:6px;border-radius:4px;background:var(--line);box-shadow:0 14px 0 var(--line),0 28px 0 var(--line)}
+.c1 .mini{position:absolute;right:12px;bottom:12px;z-index:2;display:flex;gap:9px;align-items:center;padding:8px 12px 8px 8px;border-radius:12px;background:#1c1d22;color:#f2f3f5;box-shadow:0 10px 30px -8px #000,0 0 0 1.5px var(--acc)}
+.c1 .mini img{width:34px;height:34px;border-radius:6px}.mini b{display:block;font:700 12px var(--body)}.mini span{font-size:11px;color:#b5bac1}
+@keyframes wn{0%,100%{transform:translateX(-130%)}25%,75%{transform:none}}
+.c2 .pill{animation:ph 7s ease-in-out infinite}
+.c2 .gm{position:absolute;left:14px;right:14px;bottom:14px;height:62px;border-radius:10px;background:var(--panel);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font:700 13px var(--body);color:var(--sub);animation:gm 7s ease-in-out infinite}
+.c2 .hid{position:absolute;left:0;right:0;top:20px;text-align:center;font:700 12px var(--body);color:var(--lav);opacity:0;animation:hd 7s ease-in-out infinite}
+@keyframes ph{0%,24%,80%,100%{opacity:1;transform:none}34%,70%{opacity:0;transform:translateY(-8px)}}
+@keyframes gm{0%,18%,86%,100%{opacity:0;transform:translateY(16px)}28%,76%{opacity:1;transform:none}}
+@keyframes hd{0%,34%,72%,100%{opacity:0}42%,64%{opacity:1}}
+.c3 .pill{animation:p3 7s ease-in-out infinite}
+.tray{position:absolute;left:0;right:0;bottom:0;height:26px;background:#14111d;display:flex;justify-content:flex-end;align-items:center;gap:7px;padding:0 10px}.tray i{width:10px;height:10px;border-radius:3px;background:#4a4160}.tray i.a{background:var(--acc)}
+.menu{position:absolute;right:10px;bottom:32px;width:158px;padding:10px 12px;border-radius:10px;background:#1c1d22;color:#f2f3f5;font:700 12px var(--body);display:flex;justify-content:space-between;align-items:center;box-shadow:0 10px 30px -8px #000;animation:mn 7s ease-in-out infinite}
+.menu u{position:relative;width:30px;height:16px;border-radius:9px;background:#3a3b42;animation:tg 7s ease-in-out infinite}.menu u:after{content:"";position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:50%;background:#fff;animation:kn 7s ease-in-out infinite}
+@keyframes mn{0%,8%,88%,100%{opacity:0;transform:translateY(8px)}14%,82%{opacity:1;transform:none}}
+@keyframes tg{0%,28%,60%,100%{background:#3a3b42}34%,54%{background:var(--acc)}}
+@keyframes kn{0%,28%,60%,100%{left:2px}34%,54%{left:16px}}
+@keyframes p3{0%,34%,64%,100%{opacity:1;filter:none}40%,58%{opacity:.25;filter:blur(3px)}}
+@media(prefers-reduced-motion:reduce){.cs *,.leq i{animation:none!important}.rv{opacity:1;transform:none}}
+.chk{max-width:640px}.chk input{width:100%;padding:16px 20px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:500 17px var(--body)}.chk input:focus{outline:2px solid var(--acc);outline-offset:2px}
+.chips2{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.chips2 button{font:500 14px var(--body);color:var(--sub);background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer}.chips2 button:hover{border-color:var(--acc);color:var(--text)}
+.pr{margin-top:18px;min-height:96px;padding:18px 20px;border-radius:14px;border:1px solid var(--line);background:var(--panel);display:flex;gap:14px;align-items:flex-start}
+.pr .ic{flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--line);color:var(--sub)}.pr.y .ic{background:#23a55a;color:#fff}.pr.m .ic{background:var(--acc);color:#fff}
+.pr b{display:block;font:700 18px var(--body)}.pr p{margin:4px 0 0;color:var(--sub);font-size:15px}
 </style>
 </head>
 <body>
@@ -222,13 +278,22 @@ footer{align-items:center}.fl{display:flex;gap:18px}.fl a,footer>a{text-decorati
 <section id="demo"><div class="wrap">
   <h2>Play a song. Your profile follows.</h2>
   <p class="sub">A ten second look: the song changes in your player, and your Discord profile updates a moment later.</p>
-  <picture><source media="(prefers-reduced-motion: reduce)" srcset="demo-still.png"><img class="demo" src="demo.gif" width="720" height="405" loading="lazy" alt="A music player changes songs and an AudioTwizz status on a Discord profile updates to match"></picture>
+  <div class="live" id="live" role="img" aria-label="A music player changes songs and an AudioTwizz status on a Discord profile updates to match"><div class="lc lp" aria-hidden="true"><small>Music player</small><div class="lcv"><img id="lcimg" src="data:image/jpeg;base64,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" alt=""></div><div class="sw" id="px"><b id="p1"></b><span id="p2"></span></div><div class="lb"><i id="pf"></i></div><div class="ltm"><span id="pt"></span><span id="pe"></span></div><div class="leq"><i></i><i></i><i></i><i></i></div></div><div class="lm" aria-hidden="true"><img id="llogo" alt=""><div class="lw"><u id="ldot"></u></div><span>AudioTwizz</span></div><div class="lc ld" id="lcd" aria-hidden="true"><div class="lbn"></div><div class="lav"></div><div class="lnm">Twizz<small>twizz</small></div><div class="lac"><h4>Listening to Local Music</h4><div class="lrow"><div class="lcv2"><img src="data:image/jpeg;base64,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" alt=""><div class="lsp"><svg viewBox="0 0 100 100" width="29" height="29" style="position:absolute;left:3px;top:3px"><circle cx="50" cy="50" r="50" fill="#1ED760"/><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"><polyline points="20.0,38.7 22.0,37.7 24.0,36.8 26.0,36.0 28.0,35.3 30.0,34.6 32.0,34.0 34.0,33.5 36.0,33.0 38.0,32.6 40.0,32.3 42.0,32.1 44.0,32.0 46.0,31.9 48.0,31.9 50.0,32.0 52.0,32.2 54.0,32.4 56.0,32.7 58.0,33.1 60.0,33.5 62.0,34.1 64.0,34.7 66.0,35.4 68.0,36.1 70.0,37.0 72.0,37.9 74.0,38.9 76.0,39.9 78.0,41.1 80.0,42.3" stroke-width="8.2"/><polyline points="23.8,52.2 25.5,51.4 27.3,50.6 29.0,50.0 30.8,49.4 32.5,48.8 34.3,48.3 36.0,47.9 37.8,47.5 39.5,47.2 41.3,47.0 43.0,46.8 44.8,46.7 46.5,46.7 48.3,46.7 50.0,46.8 51.7,47.0 53.5,47.2 55.2,47.4 57.0,47.8 58.7,48.2 60.5,48.7 62.2,49.2 64.0,49.8 65.7,50.5 67.5,51.2 69.2,52.0 71.0,52.8 72.7,53.8 74.5,54.8 76.2,55.8" stroke-width="6.8"/><polyline points="27.8,63.7 29.3,63.0 30.8,62.4 32.2,61.9 33.7,61.4 35.2,61.0 36.7,60.6 38.2,60.2 39.6,60.0 41.1,59.7 42.6,59.6 44.1,59.4 45.6,59.4 47.0,59.4 48.5,59.4 50.0,59.5 51.5,59.6 53.0,59.8 54.4,60.1 55.9,60.4 57.4,60.8 58.9,61.2 60.4,61.6 61.8,62.2 63.3,62.7 64.8,63.4 66.3,64.0 67.8,64.8 69.2,65.6 70.7,66.4 72.2,67.3" stroke-width="5.6"/></g></svg></div></div><div class="ltx sw" id="dx"><b id="d1"></b><span id="d2"></span><em>Up 2 M&euml;</em></div></div><div class="ldb"><i id="df"></i></div><div class="ltm"><span id="dt"></span><span id="de"></span></div></div></div></div>
   <table class="cmp"><thead><tr><th></th><th>Discord's Spotify status</th><th>AudioTwizz</th></tr></thead><tbody>
     <tr><td>Your own music files</td><td>Only shows Spotify.</td><td>Shows whatever your Windows player is playing, from your own files.</td></tr>
     <tr><td>Cover art</td><td>Spotify's own artwork.</td><td>Read from your files' tags, with folder art and online lookup as backups.</td></tr>
     <tr><td>How it looks</td><td>Switch it on or off.</td><td>Presets, templates, accent colours, and rules to hide it.</td></tr>
   </tbody></table>
 </div></section>
+
+<section id="clips"><div class="wrap">
+  <h2>The parts people ask about, in motion.</h2>
+  <p class="sub">Mini mode, hiding while you game, and a one-click privacy switch from the tray.</p>
+  <div class="clips">
+    <div class="clip"><div class="cs c1" role="img" aria-label="A small always-on-top player stays visible while a big window slides over the desktop"><div class="win"></div><div class="mini"><img class="cimg" alt=""><div><b>Twizzy Rich</b><span>Yeat</span></div></div></div><h3>Mini mode</h3><p>A small always-on-top card of your status that stays above everything else.</p></div>
+    <div class="clip"><div class="cs c2" role="img" aria-label="Your status disappears when a game launches and returns when it closes"><div class="pill">Twizzy Rich &middot; Yeat</div><div class="hid">Status hidden while the game runs</div><div class="gm">&#9654; Game.exe running</div></div><h3>Hides while you game</h3><p>Pick apps that hide your status when they open, and it comes back when they close.</p></div>
+    <div class="clip"><div class="cs c3" role="img" aria-label="A tray menu toggle hides the status instantly"><div class="pill">Twizzy Rich &middot; Yeat</div><div class="menu">Privacy mode<u></u></div><div class="tray"><i></i><i></i><i class="a"></i><i></i></div></div><h3>Privacy in the tray</h3><p>Flip privacy mode from the tray icon whenever you want your status gone.</p></div>
+  </div></div></section>
 
 <section id="features"><div class="wrap">
   <h2>Everything on your status comes from your own music.</h2>
@@ -267,6 +332,14 @@ footer{align-items:center}.fl{display:flex;gap:18px}.fl a,footer>a{text-decorati
     </div>
     <div><div class="dlg" id="dlg"></div><p class="eg">Example of the update prompt. Try it.</p></div>
   </div>
+</div></section>
+
+<section id="players"><div class="wrap">
+  <h2>Does your player work?</h2>
+  <p class="sub">Type the name of the player you use.</p>
+  <div class="chk"><input id="pq" list="pl" placeholder="VLC, MusicBee, foobar2000..." autocomplete="off" aria-label="Your music player"><datalist id="pl"></datalist>
+    <div class="chips2" id="pc"></div>
+    <div class="pr" id="pr" aria-live="polite"><span class="ic">?</span><div><b>Pick or type a player</b><p>You'll get a yes or no here.</p></div></div></div>
 </div></section>
 
 <section id="install"><div class="wrap">
@@ -340,6 +413,7 @@ footer{align-items:center}.fl{display:flex;gap:18px}.fl a,footer>a{text-decorati
 
 <div class="wrap"><footer><span>AudioTwizz v<span class="lvv">7.7</span> &middot; Made by @overseas</span><span class="fl"><a href="#privacy">Privacy</a><a href="#contact">Contact</a><a href="#">Back to top</a></span><span class="fine">Not affiliated with or endorsed by Discord or Spotify.</span></footer></div>
 
+<div class="toast" id="toast" role="status"><span><b>Downloading AudioTwizz.</b> Run the file. If Windows shows a blue warning, choose <b>More info</b>, then <b>Run anyway</b>.</span><button type="button" id="tx" aria-label="Close">&times;</button></div>
 <script>
 var $=function(x){return document.getElementById(x)},root=document.documentElement;
 // accents (same colours as the app)
@@ -401,6 +475,47 @@ var tl=$("tilt");if(matchMedia("(hover:hover) and (min-width:901px) and (prefers
  tl.parentNode.addEventListener("mousemove",function(e){var r=tl.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;tl.style.transform="rotateY("+(x*12)+"deg) rotateX("+(-y*10)+"deg)"});
  tl.parentNode.addEventListener("mouseleave",function(){tl.style.transform=""})}
 </script>
-<div class="toast" id="toast" role="status"><span><b>Downloading AudioTwizz.</b> Run the file. If Windows shows a blue warning, choose <b>More info</b>, then <b>Run anyway</b>.</span><button type="button" id="tx" aria-label="Close">&times;</button></div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+var L=$("live");
+if(L){
+var S=[["Twizzy Rich","Yeat",150],["G\u00ebt Busy","Yeat",157],["Turban","Yeat",160]],B=[41,12,30],k=0,vis=true,st={p:0,d:0},kk={p:0,d:0};
+var f=function(s){s=Math.floor(s);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)};
+var li=document.querySelector("nav .logo img");if(li)$("llogo").src=li.src;
+var put=function(w,n){kk[w]=n;st[w]=performance.now();var s=S[n];$(w+"1").textContent=s[0];$(w+"2").textContent=s[1];$(w+"e").textContent=f(s[2])};
+var swap=function(w,n,ms){setTimeout(function(){var b=$(w+"x");b.classList.add("o");setTimeout(function(){put(w,n);b.classList.remove("o")},150)},ms)};
+var tick=function(){if(vis)for(var w in kk){var s=S[kk[w]],e=B[kk[w]]+(performance.now()-st[w])/1000;$(w+"f").style.width=Math.min(100,e/s[2]*100)+"%";$(w+"t").textContent=f(e)}if(!rm)requestAnimationFrame(tick)};
+var an=function(e,kf,d){e.animate(kf,{duration:d,easing:"ease-in-out"})};
+var go=function(){k=(k+1)%3;swap("p",k,0);swap("d",k,550);
+an($("ldot"),[{left:"0",opacity:0},{opacity:1,offset:.15},{left:"calc(100% - 9px)",opacity:1,offset:.85},{left:"calc(100% - 9px)",opacity:0}],600);
+an($("llogo"),[{transform:"scale(1)"},{transform:"scale(1.16)"},{transform:"scale(1)"}],650);
+setTimeout(function(){an($("lcd"),[{boxShadow:"0 0 0 transparent"},{boxShadow:"0 0 30px color-mix(in srgb,var(--acc) 50%,transparent)"},{boxShadow:"0 0 0 transparent"}],950)},550)};
+put("p",0);put("d",0);tick();
+if(!rm)setInterval(function(){if(vis)go()},3600);
+new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(L);
+document.querySelectorAll(".cimg").forEach(function(i){i.src=$("lcimg").src});
+}
+var P=[["Spotify","spotify","Reports to Windows media controls, and its window title works as a backup."],
+["VLC","vlc","Works through Windows media controls, with a window-title backup."],
+["MusicBee","musicbee","Works through Windows media controls, with a window-title backup."],
+["foobar2000","foobar","Works through Windows media controls, with a window-title backup."],
+["AIMP","aimp","Works through Windows media controls, with a window-title backup."],
+["PotPlayer","potplayer","Works through Windows media controls, with a window-title backup."],
+["MPC-HC","mpc|media player classic","Works by reading the player's window title, so Discord shows an elapsed timer instead of a progress bar."],
+["Windows Media Player","wmp|windows media|media player|groove","Reports to Windows media controls, so it works."],
+["Browsers","chrome|edge|firefox|brave|opera|browser|youtube|soundcloud","Works for tabs that report to Windows media controls, like YouTube or SoundCloud."]];
+var pr=$("pr"),pq=$("pq"),pl=$("pl"),pc=$("pc");
+var show=function(c,i,t,d){pr.className="pr "+c;pr.innerHTML='<span class="ic">'+i+'</span><div><b>'+t+'</b><p>'+d+'</p></div>'};
+var chk=function(){var q=pq.value.toLowerCase().trim();if(!q)return show("","?","Pick or type a player","You'll get a yes or no here.");
+for(var i=0;i<P.length;i++)if(new RegExp(P[i][1]).test(q.replace(/[^a-z0-9 ]/g,"")))return show("y","\u2713","Yes, "+P[i][0]+" works",P[i][2]);
+show("m","~","Not on my list, but it may still work","Press play, then open the Windows volume flyout. If your song shows up there, AudioTwizz can read it. <a href=\"#contact\">Tell me which player you use</a> and I'll add it.")};
+P.forEach(function(p){var o=document.createElement("option");o.value=p[0];pl.appendChild(o);var b=document.createElement("button");b.type="button";b.textContent=p[0];b.onclick=function(){pq.value=p[0];chk()};pc.appendChild(b)});
+pq.addEventListener("input",chk);
+if(!rm&&"IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll("section h2,section .sub,.cmp,.clips,.chk,.bento").forEach(function(e){e.classList.add("rv");io.observe(e)})}
+document.addEventListener("pointermove",function(e){var c=e.target.closest&&e.target.closest(".bc,.clip");if(c){var r=c.getBoundingClientRect();c.style.setProperty("--mx",e.clientX-r.left+"px");c.style.setProperty("--my",e.clientY-r.top+"px")}});
+})();
+</script>
 </body>
 </html>
