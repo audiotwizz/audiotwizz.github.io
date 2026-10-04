@@ -446,7 +446,7 @@ h2{font-size:clamp(28px,3.6vw,40px);max-width:20em;margin-bottom:16px}.sub{max-w
         <div><h3>Checked before it&rsquo;s installed</h3><p>The download is verified against its checksum first, so a bad download can&rsquo;t break your install.</p></div>
         <div><h3>Your settings stay put</h3><p>They live in their own folder, separate from the app files an update replaces.</p></div>
       </div>
-      <div class="cl" id="cl" hidden><h3>Recent changes</h3><ul id="clu"></ul></div>
+      <div class="cl" id="cl" hidden><h3>What&rsquo;s new in this update</h3><ul id="clu"></ul></div>
     </div>
     <div class="duo">
       <div><div class="dlg" id="dlg"></div><p class="eg">Update prompt. Try it.</p></div>
@@ -612,8 +612,8 @@ fetch("https://cr1m999.github.io/audiotwizz-updates/api/latest",{cache:"no-store
  prompt1();rb1()}).catch(function(){});
 (function(){var m=document.querySelectorAll(".mc");if(!("IntersectionObserver"in window)){m.forEach(function(e){e.classList.add("in")});return}
  var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle("in",e.isIntersecting)})},{threshold:.25});m.forEach(function(e){io.observe(e)})})();
-fetch("https://cr1m999.github.io/audiotwizz-updates/api/versions?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){var a=d&&(d.versions||d);if(!Array.isArray(a))return;VERS=a;var ul=$("clu"),n=0;
- a.forEach(function(e){var v=String(e.version||"").replace(/[^\w.\-]/g,"").slice(0,16),t=String(e.notes||"").trim().slice(0,200);if(!v||!t||n>=3)return;n++;
+fetch("https://cr1m999.github.io/audiotwizz-updates/api/versions?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){var a=d&&(d.versions||d);if(!Array.isArray(a))return;VERS=a;var ul=$("clu"),n=0,top=String((d&&d.latest)||"");
+ a.forEach(function(e){if(top&&String(e.version)!==top)return;var v=String(e.version||"").replace(/[^\w.\-]/g,"").slice(0,16),t=String(e.notes||"").trim().slice(0,200);if(!v||!t||n>=1)return;n++;
   var li=document.createElement("li"),b=document.createElement("b");b.textContent="v"+v;li.appendChild(b);
   if(e.published_at){var sp=document.createElement("span");sp.textContent=new Date(e.published_at*1000).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"});li.appendChild(sp)}
   li.appendChild(document.createElement("br"));li.appendChild(document.createTextNode(t));ul.appendChild(li)});
