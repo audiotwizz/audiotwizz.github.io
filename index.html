@@ -576,9 +576,98 @@ body.ck-open .toast{bottom:calc(190px + env(safe-area-inset-bottom,0px))}
 .ckm-a{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .ckm-a .btn{padding:12px 22px;font-size:15px;border-radius:12px}
 .ckm-n{margin:16px 0 0;font-size:13px;color:var(--muted)}
+
+/* added: comparison table, what's new teaser, cleanup steps */
+.cmpw{margin-top:28px;overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.cmp{width:100%;min-width:560px;border-collapse:collapse;font-size:15px}
+.cmp th,.cmp td{padding:14px 18px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+.cmp thead th{border-top:0;font:700 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cmp thead th:nth-child(2){color:var(--acc)}
+.cmp tbody th{font-weight:700;color:var(--text);width:30%}
+.cmp td{color:var(--sub)}
+.cmp td:nth-child(2){color:var(--text)}
+.cmp .y{color:var(--acc);font-weight:800;margin-right:6px}
+.cmp .n{color:var(--muted);margin-right:6px}
+.wnew{margin:14px 0 0;font-size:14.5px;color:var(--sub);max-width:34em}
+.wnew b{color:var(--text)}.wnew a{color:var(--lav);white-space:nowrap}
+.steps2{counter-reset:s2;list-style:none;padding:0;margin:28px 0 0;max-width:46em}
+.steps2>li{counter-increment:s2;position:relative;padding:16px 0 16px 48px;border-top:1px solid var(--line)}
+.steps2>li::before{content:counter(s2);position:absolute;left:0;top:16px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:800 14px var(--body);background:var(--panel2);color:var(--acc)}
+.steps2 h3{margin:0 0 2px;font:700 18px var(--body)}.steps2 p{margin:0;color:var(--sub);font-size:15.5px}
+.steps2 code,.compat code{background:var(--panel2);padding:2px 7px;border-radius:6px;font-size:.92em}
+.compat{margin-top:22px}
+
+/* added: animated player setup cards */
+.pgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:32px}
+.pg{--c:color-mix(in srgb,var(--acc) 40%,var(--line));position:relative;padding:22px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,color-mix(in srgb,var(--panel2) 55%,var(--panel)),var(--panel));scroll-margin-top:96px;
+ opacity:0;translate:0 26px;transition:opacity .7s calc(var(--i)*.08s),translate .8s calc(var(--i)*.08s) cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+.pg.seen{opacity:1;translate:0 0}
+.pg:hover,.pg:target{border-color:var(--c);box-shadow:0 22px 50px -30px var(--acc)}
+.pg:target{animation:pgflash 1.4s ease}
+@keyframes pgflash{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--acc) 70%,transparent)}100%{box-shadow:0 0 0 22px transparent}}
+.pgh{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pgh h3{margin:0;font:800 22px var(--disp);letter-spacing:-.01em}
+.tg{font:700 11.5px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:99px;background:color-mix(in srgb,var(--acc) 16%,transparent);color:var(--lav)}
+.tg.w{background:color-mix(in srgb,#f5a524 18%,transparent);color:#e0951a}
+.demo{margin:18px 0 6px;padding:14px;border-radius:14px;background:#111214;color:#f2f3f5;font-size:13px;overflow:hidden}
+.tb{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;background:#1e1f22;font:12.5px/1.2 ui-monospace,Consolas,monospace;white-space:nowrap;overflow:hidden}
+.dots{display:flex;gap:4px;flex:none}.dots i{width:8px;height:8px;border-radius:50%;background:#3a3c42}
+.tt{display:flex;min-width:0;flex:1}
+.typ{display:inline-block;overflow:hidden;width:0;min-width:0;flex:0 1 auto;text-overflow:ellipsis;border-right:2px solid var(--acc);animation:pgtype 7s infinite steps(18,end)}
+.suf{flex:none;opacity:0;color:#c9b3ff;border-radius:4px;animation:pgsuf 7s infinite}
+.wire{position:relative;height:26px;margin:2px 0}
+.wire::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:linear-gradient(#3a3c42,#3a3c42) ;opacity:.6}
+.pk{position:absolute;left:50%;top:0;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--acc);box-shadow:0 0 12px var(--acc);opacity:0;animation:pgpk 7s infinite}
+.dc{position:relative;padding:12px 14px;border-radius:10px;background:#1e1f22;opacity:.28;animation:pgdc 7s infinite}
+.dc b{display:block;font:700 15px var(--body);margin-top:2px}.dc>span{display:block;color:#b5bac1}
+.dcl{font-size:11.5px;letter-spacing:.02em}
+.dcr{display:flex;align-items:center;gap:10px;margin-top:8px}
+.gbar{position:relative;flex:1;height:4px;border-radius:4px;background:#3a3c42;overflow:hidden}
+.gbar i{position:absolute;inset:0;transform-origin:0 50%;background:var(--acc);transform:scaleX(0);animation:pgbar 7s infinite linear}
+.gt{font:700 14px ui-monospace,Consolas,monospace;color:#f2f3f5}
+.gtl{font-size:11.5px;color:#80848e;white-space:nowrap}
+.eq{position:absolute;right:12px;top:12px;display:flex;gap:3px;align-items:flex-end;height:16px}
+.eq i{width:3px;height:100%;border-radius:2px;background:var(--acc);transform-origin:50% 100%;transform:scaleY(.2);animation:pgeq 1s infinite ease-in-out}
+.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}
+@keyframes pgtype{0%{width:0}30%,100%{width:calc(var(--n,18)*1ch)}}
+@keyframes pgsuf{0%,30%{opacity:0;box-shadow:none}36%{opacity:1;box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 55%,transparent)}46%,92%{opacity:1;box-shadow:0 0 0 0 transparent}100%{opacity:0}}
+@keyframes pgpk{0%,44%{opacity:0;transform:translateY(0)}48%{opacity:1}60%{opacity:1;transform:translateY(16px)}64%,100%{opacity:0;transform:translateY(16px)}}
+@keyframes pgdc{0%,58%{opacity:.28;transform:scale(.98)}66%,92%{opacity:1;transform:scale(1)}100%{opacity:.28}}
+@keyframes pgbar{0%,62%{transform:scaleX(0)}92%{transform:scaleX(.6)}100%{transform:scaleX(0)}}
+@keyframes pgeq{0%,100%{transform:scaleY(.2)}50%{transform:scaleY(1)}}
+.pg:not(.run) .typ,.pg:not(.run) .suf,.pg:not(.run) .pk,.pg:not(.run) .dc,.pg:not(.run) .gbar i,.pg:not(.run) .eq i{animation-play-state:paused}
+.gs{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:12px}
+.gs li{display:flex;gap:12px;align-items:flex-start;opacity:0;translate:-10px 0;transition:opacity .5s,translate .6s cubic-bezier(.2,.8,.2,1)}
+.pg.seen .gs li{opacity:1;translate:0 0}
+.pg.seen .gs li:nth-child(1){transition-delay:calc(var(--i)*.08s + .35s)}.pg.seen .gs li:nth-child(2){transition-delay:calc(var(--i)*.08s + .6s)}.pg.seen .gs li:nth-child(3){transition-delay:calc(var(--i)*.08s + .85s)}
+.gs b{display:block;font:700 15.5px var(--body)}.gs p{margin:1px 0 0;color:var(--sub);font-size:14.5px}
+.gs code{background:var(--panel2);padding:1px 6px;border-radius:5px;font-size:.92em}
+.ck{flex:none;width:24px;height:24px;padding:4px;border-radius:50%;background:color-mix(in srgb,var(--acc) 18%,transparent);fill:none;stroke:var(--acc);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.ck path{stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .6s ease}
+.pg.seen .gs li:nth-child(1) .ck path{stroke-dashoffset:0;transition-delay:calc(var(--i)*.08s + .7s)}
+.pg.seen .gs li:nth-child(2) .ck path{stroke-dashoffset:0;transition-delay:calc(var(--i)*.08s + .95s)}
+.pg.seen .gs li:nth-child(3) .ck path{stroke-dashoffset:0;transition-delay:calc(var(--i)*.08s + 1.2s)}
+@media (prefers-reduced-motion:reduce){
+ .pg{opacity:1;translate:0 0;transition:none}.gs li{opacity:1;translate:0 0;transition:none}.ck path{stroke-dashoffset:0;transition:none}
+ .typ,.suf,.pk,.dc,.gbar i,.eq i{animation:none!important}.typ{width:calc(var(--n,18)*1ch);border-right-color:transparent}.suf{opacity:1}.dc{opacity:1}.gbar i{transform:scaleX(.6)}.eq i{transform:scaleY(.6)}.pk{display:none}
+}
+/* added: known-issues banner */
+.nb{display:flex;align-items:center;justify-content:center;gap:12px;padding:9px 44px 9px 16px;position:relative;font-size:14.5px;text-align:center;
+ --nb:var(--acc);background:color-mix(in srgb,var(--nb) 16%,var(--bg));color:var(--text);border-bottom:1px solid color-mix(in srgb,var(--nb) 45%,transparent)}
+.nb[hidden]{display:none}
+.nb.warn{--nb:#f5a524}.nb.error{--nb:#ff5d6c}
+.nb::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--nb);box-shadow:0 0 0 0 var(--nb);animation:nbp 2s infinite}
+@keyframes nbp{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--nb) 60%,transparent)}100%{box-shadow:0 0 0 10px transparent}}
+.nb a{color:var(--text);font-weight:700;text-underline-offset:3px;white-space:nowrap}
+.nb button{position:absolute;right:8px;top:50%;translate:0 -50%;width:30px;height:30px;border:0;border-radius:8px;background:transparent;color:var(--text);font-size:18px;line-height:1;cursor:pointer}
+.nb button:hover{background:color-mix(in srgb,var(--nb) 25%,transparent)}
+.nb.in{animation:nbin .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes nbin{from{opacity:0;translate:0 -100%}to{opacity:1;translate:0 0}}
+@media (prefers-reduced-motion:reduce){.nb::before,.nb.in{animation:none}}
 </style>
 </head>
 <body id="top">
+<div class="nb" id="nb" role="status" aria-live="polite" hidden><span id="nbt"></span><a id="nbl" href="#" hidden></a><button type="button" id="nbx" aria-label="Dismiss this message">&times;</button></div>
 <div class="navbar"><div class="wrap">
 <nav>
   <a class="logo" href="./"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAkl0lEQVR42u2de5Rd113fP7+9zzn33pmRZEmWHTmJ4zh+kBleWWOWQ1IiuQRSWh6hZZx/yFotD7ullLUIK2kXLZVEabtKKLBIC9hAgAZC0LBIQ1ISAsFSExKcaPJwMgrBjyjxW3YkSxpp5t6z9+/XP/be596RRs4DkUwaH62z5s7V3HP3+b0f398+8MzxFT3kq3Xhhsn+vP79YILYM+z88hDeHcT8hu8vXPj+Zj+qryaJXwQnSAQ4+GIb1KtrV04ZEvtnPycflNMspr8DRBB9xgRdGtLLArhFXATj9687t2fg6x+qPN/m0CubSqSpOFk5PuzEveklH6oOAty1x6q9h4npJjeveZLNSvTyKhFf4m/e+MSWZvWyX+7X/oemKyE68C7QeGiqioGHyoFafM+ahn/9D470P3Vw9hPNwtG5djMzYVMzYAHcLNiVV5/aVsXBO7bVzUuCtKHxopXHNRVSe6i84TxaOdjm6zqYPh4J//imv+59+I75I/VtS/NhszLAbWbzOAsyx6K0a1Nv6lnzkpUQ1lRx0axSM6dmYmZiJoLiUfyZOBp53JW1+T858tJzV9+2NB8XwdmEVj3DgC/guA38ASQc2/nK2xqt/8lKCMOo1kQFnTwBNUMtvRZctWrtcKr2z660+i+C6LXz6T43IxM2rQky4BeuZCqM2nsG3j/fS4yVxzUeejU0HuoKmkooZshnP5BOsRrR1sWb5t/Xu6c45c1mijalBuwDL4idOzd8WWX1tcE0RnCqYEiSdpN0kiTfLJ+kv4kQe87XFuSVAE88sTnvdVMu6tGsmYp/qRkW1bSYmKhGVCGaJdOjEDUxxDJTkpkyaZOsvxhg1y50M5qhajOan91JkGljvK6lEkCcA29k6c+EjxAFnIx/CoYIOBNpHRhy9R3zR+pbDhPsGQ344g6NNhMVzATTQvx0RvJrte6MOnbGCkQDxabnevN9EFtk8znjTVmKONSVH7xZIbQJliMeMzAVTAztfAIYhpogEwwAYeflm1fINqEGiF2RTRDgzMahZiyvFShMKFoBHTPMLDlmgYjYY6e667F/k0V+m5ABE+ZBXKWTGmDJHBVnXHyBTeQF5W+SloAptr1h09aCNnU11MCpZWk3MDU0O1wTGfsAJ4XYneQjoAJqJitnn3S5qGcLWbsMk82QE2xqJxxVJ53phBZkQueYv3tPs/kp2pB+xra+3PaB7H/GB3yxGmCdKYkTiRZSHHLWE8Y/kwtOn8Ogjcb97ZOyfx/MsShf4wz4IsM/k0RXSXa9vGc5EiIzQwQk/+wYIuAdnAjn/BuW3+EBFln42tOALI9iub5TXm8g7VIYdDxHKlbO/CLmJKx8XM7/Isk6kDVEgM+snbCPnXrc2I/B4sU0TTZ6/XcSnq+0Ey4txGvncUsT788vERNNN2JCOvaOfxctGpDfsPyLbFRKFEMciEvaEAXuO3MqwPYWYJYF+zyEl6V5/JGJoOmBJXQh+fPMhEvruKu/D8LvB7lzHn/7krQkgq877sKqQ6D7WR8elhh9L3AYUMyXP9CxZVlHeEcuQYjhEMSlWuqgqnkyrPLJkw+5n/rGmz+v9N4J1e1IyxIX9JLv2mOVHS4B1qVlQnWpiV/Ic/uStO+8+eQ11XD6u9Tkha1pDMZRc/rnt3xMju3D3P4UmdjT+ACVsRtIxM5n+V3yNwqCy/Ugw+g5eP8TD7DSrvpvm/kmh8DRYhHPY/ocyO1Ie3D23NVN5V/ujTknSCVyfzD981sOy9+We7NLzITqUhN/kUX5nvlr3Uva9mf9qvx44/w2c1ArtAZnR/HU71/f/nL9zfwnFmERZBlskhFXTch4sf9MMEImmNDZKkmnYszUDQ+snuA9j3ycrX4nHzn+OXklOzmYCV6+qxB/AfTN141e5839u7757bWka3sgSDz77m8Y3vHOVX767vto58AZ6KViwiV1wof24FhY4PjoG9+0tar+fYttXdEwOhPCaCWG0dk2jEbRts5Ite/skfbNLMDJ3K2aLBEsZTMTwEW70M+KgHOl+llMEChK5RzmlT/4zAcZqSETt3iBC96DWwD97eva353y9X9r1bafDWF0Jrajs9qOVrQdtaqDrVXzGj8VD141j9+1B9l/CW2Qu1TSf2gP/pbDEqaPtj8+I/WrTrRhTQ0NShWUqo1UwahaRU+GuNa3+tYn3x//ze1L0l6VhG3sqLty6ISEM5ZyN/GzcuB98gGVOAaV53ceeB9/e+pxtrntqDp98OQTtm8fcpxDBUknd0J14LCE37y2/ZdT1K9+qm2Ho2CxrDcqlZpUEbETsV2b9v57n9sOf/qWwxL27rl0gnupLiR7DxMPzp/Y1iqvPRNVY7SqjUhQaNUYqTGKEBVp1arTqtqqve5Xr7btt0GYO18DDLxDC7FLnV/EsvQb3iVNMJTGeab6FW889pe89/GjbHVbEKuopWYncPToouxlL3MgR0Fug/A/dtnMWsu/XQmqUfFRkWE0ggptTElciCYhUJ9uYwzqfurgN5199i2HuWSNfncppP/O3ELUlS0vFqufvRpU24hrozFSaBXCxM9g5oYaVah2nxuGlwpiJ/Na5kDmKY4VV2y9d1kLXDIqlQjOG+aULU3DiCFvuO/P+KvjD7BddiBW4WgQaoHLmV1csFLmfnlC2NlqE24y9c9bC9GC4oJCyIQfKYxiOltF1oJqTb1F2uplIMbsst80GrB9djm1EIPdgGLB0JHByJL0t9kBh3KmG1UzrDW7EWD7hAY8UhyyOTd2uIJ3Y5PjvOG8sH3QcKx9jNff+zbuOfFZtvvteAZ4engaagZ21qkdZVH2Astg5bu01evEHEGJZX3R8lqzwHRrVzGNmLVyDcCjozm5FM2d6u8Q8UwccwCESC8KpRdLlNSvhVSXj4rEmBmgWcjNVTDuAy+Pgx2s1HcEHJbQDj5Jfq+qmW7g3Z/7CO94+IOINlzmtoNWmfh9PH2E2gZOjVyGmAMp39WaNEFTliWatS53cwzwImhuhUpiiuiEvyoRVamsfikV1kuaB0TDCnFx0jVRLEnWmPgGAcOlaqWdx0o5mUw+IqZFAyovOGeIGNuamjNyit/77Hv5m9MPMcU0tZvCWSK8o6GmT02PioZVdTILdiiFneP14lywcZZNCfRVcBiak7siEa1C2ybm7W6wExsIZWJCudIlYkC5+MW4++goLSpECJJrNprLx1jXSI+aEAulnxsNgiYV2c36G0LAibiS6TpvVN6xrfHcs3o//+fx98m5oLZNdgIV3nqd2anoUTNFI1NU1LKLKzYWmKhe8UQp/Z8k/U4MJ4JgeE1rF4TgYJS1p9zzRfoYXe3o82lE9XQEXwS3aw+ytIKcWcIM040yyR0lasxOLAAquU6fGycxN0tasDhR04/lhrhX4PrzC3niBLw3+s5TO+VdJz/Ah079DT2mbJubQszjqHE0eGq8NFTWx0sfZz0qqTinyDGQG8/LhA0Vzb2GoOkbLTt8s8QEJLU6heQLVJ/ebe4H2QtuyzxyZgazw2OabaQZ1cUy2kN7cLcelsDhjes4G315AAmWVLW492CYmUkCUo0RCwVgVRhwgusvlBQVkwoGVY36Vf73yffx0NrjbHM7cPRwViEUBtRUNFQ0iRnW5PcrmTJkFuzR5GMmBMZFdYnApd4kpQMn435zicSCQYzr730ygbwK/H4IggSW1tNsb8YNyOfTgEVwtyKRw+h75p96gaP/IoLMBNyx1ar64C1Lcu6Oeau3X5sWsryIbc12MRquRBJdl8rAXGmskxu2yQdIKXACO0B2n1ffVEw8sMo5/uLUBzgxXOEy2YVQIVbhqXD59Jn4FQ1OarCamj4e4ZxgUxPXPdEBv9CY11I8q2lyvmaGIUhGXoglzR7pRU2Pux1pmz2f7v/lqdHNYvZ8xFbU20duWZL7AfZxV5Xk9CIMMMwJEt85v7J7Kg5+HrVXVuJnkES83jB+6q1zw33fvyR/eHDVGuaIe/fgjh0bJ67aMWAcw6jKOkBVa0a07ITjhTq91MXI4hRjaeVvWAmwVXYBgjNXpJuKGi81DifeajyNCRUidXbCFrVCj4Js774hLbjV6BqpiZLv3FJjx5L/MSfgNNf7LEV1SlrviRaZW0BYTOWU25ekfevc2j8bPFkdUOfn+j5JVwjh7Hu/Ob51xa++7ruWZh7dh7kDE9M7bn0ZeT/vftHZq5pR7z193A8OVafPamhPa9uuxjao+BunpHnLH31d+PFbj8podnl9CWFkSaISIwpUMJmhaBBVaHN7MRa/kJdyX67VLJdE7D/uc955ORZOcDaMZKvbQcM0PbbQMEPDFD1maGSKmgE1U+bpmacWT0NlNRUVHrFnAbNZ6ufAdnBN116IOl5LmIC9lAguWvm9vE4ku6bc9Gwqu7/lhtUf62nvjxQ/N9TQnolte9badiQ21fPuB/uhf9e7bjr33P3n9UImpU8OcEDDsPqffale+GRs14Kio2g+GD4YbjW07dkQowb5xd+7dvgNc0dp73kYPx2zSscCkCIj1egccIzW9XZjgRYatB0L7mUW7CjYm8HkZw/oifiUndJzbJGd1thMJv56JjRMUdOnok8lfTyNeerkkFMNya0ochSsQB7vyzfs43p0XTTJXTfQBDKSJEQpkiswl06HlvELR2nfdN3aLLH6pdUY42oMbavmQ8RHw6uKfq4Nq434G+M5/4YcFa1nwL6kgPrH159+oUb3PSfaEIPSjCIyCjBsYRSEURB/ttUouLpVd5sgFtZwJ2O5oOukKYWcObpQJGWYNpY21a7JMnnMgu3NZejTHJcBM/SZkSm20ZcZ+kwzYIYBM/RkQEOfhj619aisoaFHQ02FS+EryDktkRayPHHzLROgrkz4VC5JAhK0tEFz+GxjjQU4ezaVNELrb6uomrWgsQ3mRxGGEdZaWAsmbbTeiVGIZu67/3hu7YWC6D7MdQwo1T2V6iak8kMlTtZChkFYC8ZaMIYBd3aEtVFuPrhg/rlbiSs+g2nLoidwnB2AyibyA7WE8QE0JGe+I0dBRycItMqTbodsZ0a2MJApptnCtMwwJVNMyYA+g0Rwa2ioaaiz7AuVlOaN2JTDFsaJ3oVhaAfySr4pmqT7iEy8l4UnpTFsjcjocqJh0ka+5VzEWsUN45huozA+h9HUucpHTRaWTPN1DnAYm20jhWE0RkEYZk4WZgwjDAOsRWTUsuXk++gV2HdywuomJ1iCSrqZYnbyWVANMULgYoH1PndCPu2292FH1Web7zHjGrb4PtNSM3A1A6kYSEVfPD1x9ESoc2SRAtR0g1NZA3afl8MEVFotkPd0FuhLNqWmnQ+QnDiuX+WvXEczCmxZa5FhC20Y02pk0Gb6tZqqBK2mKHjvZBR0KMf6sVUbmafN8hHPGwFKZQYxkUTQ+vyATDOSxFJGrGZdz3CsDSUBSy9ULzRBR1nEbL/d4H5BT7tPc3X/+awxwszlUDYxtXTLQgZhWWkh5O9w2ZSds88J7LwwzdD09ZqLDYIhliaMS8YW8v+4jMiO54XKuxvsIcMkZixq7l04RycALgOGayCqs4tWQ1cDllRIShm2EJ02ShcppFo5nFbk0LraSop22s4PFHufJYzigJNKG4BzF3iC4yxL5Woza/Xu4dvZOh3s8mnHZQNjW9/Y1oftfbisD1v7sLUHMw1MVzDloV9Bz0NPoBaY2rXTNoIEqUZT06ydSmCsCcGMkZp091ByGtV1DFgmSX2rRdpzLyEkOiYrYvmEtZg+X4R+XR4wAvGaVKf0Y40SpiWbHWNCxwYVvXKaeBPw4Q5KiMUJKCET2lOg5TrBhOQXgivJ0Y51yqQM3FZ5rH2E/9u+k1dd/j08eW6UQtsMwg02Ye5CEhbVCfyQQhuI7il0+Xiqgs6BXce9xQQ5b4aKYuZw0ZDcZnEi+K6slpLG6EBTi6I7doyQFUOcliFBw1n6vFNLgUD+RGXQRnfxTLiNjppxPJykRFJtJztWy+l6jOZOROTYYThdPp9rtTFHutYlZjqB388ShxGiEXIs9BjYjkknbAZ4tsqzeN+TdzPjGn5g9ys4PYyMQgRzhDjOJUKV84xonealrBauBFZKr3NpHIZKTsSjWa4CGUEtEV5Kpz/fc0k0z6vCnGgwiQl1pow/5jB8Ib4mU9M6GNl6DVrHDlOk1exAQukGZULlQtsw5mRqg5TcopMwkWgFHUcPJcookywxKhFFiRHgDPdK8QGwN0ELadTRY0qmeMfxd/L7x9/Kti3GFVsaBj1lumfM9GC6B9N9mMq/TzUwqKFfQ9OYH12Gm7siqeTyHuT0867PTMar5YhMk1AUJF7MSeRk0hg2cMLsQkNEg46dbim7j7RzwLQ5kGlbd/Fi3DAqgieodeGCkuoiIat+0YKgyExETu+B59wPPAQR9d58IrhMTi1mU4YSTNF8YkqQi0RBZjjpC6wCFVtlF3/26F189tyD/PC1P8C1M1dxei0yjBFTydKfbr4KSdqigQWxrTlMnk/dtpTFCgRNehkl9RlEU89ZJJmRmCHuWGqDlkovpPt95AXYVSvIsYgEKSZq7Ih9UaT8Ojhoz9OgdTffauwcbMjOuHAuTCQiWcUTjw7D6YfGxS0dZ5IdnDxFQDqRE2gKR4kd6nDLumroobw4L6nM3BeouEwu575TD/IzH/tFDj72Luq+snOqoamNXm0MqjxD3EBdQy85YzkdNy6gRdBgMZnMHCKn5FGT5peEcrIkoR39KZXiYEiIoBGLKdy0tkh/CWYyTTW4izMgqrfUA5Wx6oQcz2fCF+aoiXsk4ObATmciaiDqZDJWyhETg3TlRsu/MCERRzNiAfZigKMfU3+3b54BwoBptxWnDW/57J/yH5Zfz5GVe9i+pWGmV+MrTcPbHmpvUjmoHf1aaJZnxznAsVyMGzGsWgtEi52ZjKbp1PXTN3E8c2AAWydyiqhYIXCXhJaIsZgflcKEi/uAUC6UP1RCyHYCLRCymscIKw5bnFiM5lJEV/2cTHKKOcoOONl/Q3N168wGs1sVjfP0c3txQEUfrKGSaba57Tx09jF+/pO/wevvfSPH43F2TDd4Z4gotRe8B+/pu3M0B37WKcDcYWxrXYpxsTJ0Qiu1GwRZN/w3UVo/vyGztNSBDGgj0ipS4DhdC3ayFXte4nNeFATOpzg+RTuGTdRJSmiTw1K9zGGzYMfGkiAO1g1PRDRlvmJo/heJmEWiGAV4vIV0raMT+FtHIw7FGGRkkFIByohgMC2Xowz5q+Mf4uMnPsn3PfsVvHz7LTg850Ztig2dDaxiejxQAKfbY9lkyijpYVpXSbgsf5uRBKf0hVM5ev0xPw/3fAQRSSZXopXgKUm4y7MLdGCEiydikbiOcyURK843aYMlmMaE2bim+7yalSlFK8nWBOFNCZkFWkLS7p6WL+irOrxW0qeSgaV+74CKARVTNGzFMQX0uUyeRQjwO595C7/w6Ts5KU8xaGppLSjCILSjrQCPrCLLeyY0TU1jXk20FCDEbrU6rmExruq2WdtP86CUa0bEStRX/EboStjjomTSkqfxASNNzqSzdyYpwph0vt3OJHrRhrTleDmNGBVJSreaVH6sC9qh1+cYh6FZPaVnYjXOanxutFcyRcV0es2AimmgopYZLnfP5VOn7uO/fuoNfHzlU0y7Rp14p7XbVpKm9ZWTJAKF6ElYxiCCMSOyacp9zOQDnmuTvZTIZI8jM06FGI0YhRiKKXqaKMjUnQnrimlMwEpKnFz+xTUeZTR7HkhZc7g5TroUtYhZNkXdVYrsJWNV8oDJaqiz2o9bjn0qBtRMU9HHUU/gfwZ4BkDDFredldFpfu0zd7K89re2vRHWYrsLoLROiw8IjEyt6GjMQqVZUMb/uiJiWlVHwUdBOEoOevKdyTgULf4wjgMTU7FzGzEgYwLaj440WDR8aZyEHBmoFQlRBbFounwACXeDP5GlNqp20YR1w0iKSllcd0sT/mCcGR5dx0wTT+MSA2pxNLkR3+Bp8PRwJChKxTSVDPDWoOYYyGXUTPO7jxy0T587w0w7eHb3HYcLagS8czXoRFSW1kTHFCPmc5wXJZU9AdaD1F4U/XDyE6bpM6XPkF/nfvnITLDwiUmaO4ADuUGws339x830vbVVXs3alKhnKc6GRDGCBXHmfwPgalBybSU3jTpHqxOa0EU+pp3sG4rrGHD9hV1u8VZJg5MGR4VkbRDqTPzkDyp6eEtIuJophB492cYoDnnr8T/ldBw9b9wJHrfEAupymEEXm5kmoSFprtrkfUBgHMgPi+CK++1IIKKiFjVMfiZRra2oqlbbD+4IU0cMk9IXXmeCDrDf1PMTgdGpmqanaMzIkmAp45YeU01g5Vd+i8Gh27B6N8THchKVbogJtR0bLUUxK7Z20lcU4bq3s/8rbBFBTMzFjHgwJw2Cz0woDOivM0EV03imqZgCq5mWbfLY6HHuWVt6lggc4xCze5DTzzsmOXVMPyc0s9OCzi9ojuZiGm6b0NLdEG/D6jtD84Egw/8+YFBHU6emiWZmQS3GyppesPCUGLcfQML+81uSRQsWwN3R9j4W3ep3RNoPe3q1t15TMWg8U40zv7Zmpw883y77yds4Up/cAB+kHabTOumfjPwnWZLOi48oCT4Dr3wHwBJqnCQQVkFEeHrd6TrT1CTGWJ9jw0d3VuJ5vL7HxluBpEx4rKm67uf61ebgYQJGU46ToPuw6o1x+rVDzv6Mw59tZKrx1m/Eeo2jX0faj0Q7+52/Su+jC5ifREVU6zFBEvdh1YEgH1rgE9+61T//Fao6r8RpJ/W9ztq//G0uu28B87PMx90XpvZWpVbfOinSCRXvbsgUE8uAv43HW12aAEDweNHUMMnVy4IlLKVinxPBUtd0uLQihKGuzoxicLfOLRrA459prRRPrKvcjge+LX+Hy2tNV7euTF6qt7+SM6N9aczJvVFnfu5f8dSbh9J+ZyBcB36tluruh/Xhd7+LG4a3caS+E2mfFph1AOIC5g9CK1HeDrx9coa0mJ0D+Z19E+qUIl4m7N9EVJGTMUQ7zFD+iws0YIb51KuRKhfCnIDPiDVDOj2T7A+kVOIBw417XBIQrt5yhQNk+SjM7pkEcEYr9p7S+cKBle8oLFdcp91BNqCZ7cu0+TXkAZRfXyeVmOzlrupO5sMXgA0VW4QomLuNI9VJ+rKdOSvqdud5yK4DjBveY2SflTpqF5KaaM6Q1xuiAtEoxbjZCbCyx4M4FJ/+VlJ2ngicCDMJrzMRfBcwCIZa7WDvzhcYizA3m7qx118H77oPTEW70FikM4xC6DrKkpub0hnWscDIeXSA/XEB87DsS16znSXbD/Ewe+NGiOmnQUeL3tm1XzaeIe0GNLpa0GSmME7Ixu/r2CfknnHszOFyl4yNB/KcWBnNM5dKxTgcFSYxYTnRDlgoZnjqpAUiHNfTfN9zXsRLn30tcuutHJzdty7fHreVrdOuUpIQS0MDriN+CUyfbuub/bYIBnO6fuLt4gjpzzMh83TQarmAOZbjCdaZIFt3dvs5WHrtN1hCGaYDwZGcsBOfiCGCiENwiDic+Gw8svnAU0vNikbmtjybV1/zTQyDGixaYfDptkRBaRDcJmysmiauiOV8wJK/mjCoT0+Pjc6/1xElmVDJnNLk/MEmFmvrXkj3iY13OS+gDW8uSbz5wgh8Gj218cSwdAOsHi/CKR1yw2XP4nXf8DJpKscotm7fPtvA0Tub2GSCSc/UJWdmOZE8f3TzCxXUL8OM2FJH2/iUEfK2HDA5ZjTW3bSZRsoAFLCT51/vCiZrl8UWuyzjPpkHHGI+M8Jl6RfOaORbdj6H1379i9nSG1hQcOLXUa2UIvCczKowlgIZC3NnSnN7Mq9qZbJ0simG9K4tGaHXD7ecNQxv60erk+notpxxgPeRoTlXfTQ537kLRMuZEzO6aGQMtfLZBKVrV+IYWcIa3fq8G/nJuZupxbMW2tQYR9oDB7CZq5GrVpZkR97CbFpsSWWtFcSPtTQZM8mD8CJlPsCcsgqOjwLczPXx7yr9l4wBi6ALmH+0Xf64WTziZdqDhGJuZMLkZHUPNTPeIR98UXjwo3sSbv4CBlRSabLxWfLLP3Hddb04zmjLlYOBvObr5/neq1/AamxRM3zeTUsE2bcvffENM/PGLnThhdYcHM59EnhPxbQjjQnkVFfGm1Dk+LpmqlJWPx7CIx9IEPMLNyH5Sg5qcxzkMLcEzF6j1gZJ049p23hLUoWICS44fC0YlfnXHuCWcCN7ZeNkTMR1Nn7sasUcXqo0/K2R79h9Na/5xm+2F2zbypnQ5mhgzHbD6qseHUPp567AZllOaDUvP22EkaNq8oxhV0DBXAb5OScImH/dIl8/OpQwv7ap9oo4DPE2jtSLXPk+lXM/7Ki1ZksjJt5Iu8w7c75ma1PTHzkZ/sjbeMF7F/hEcweEA2AHLgzxJhggYxaIsKrKrv4U/+L6G/j+a56Pd46zIeCkzCUYWjYbNeyG3edNY87NxX1z1H8SbviIq0b/vKK32uOyRnAeExNzBuYqm2m89X2Q0z/xFna+ax9WHb5E0n8JGZCk4U7mwx6s+iO96n+ZnXyZsvZWh3uqovaennfUT0H7NrHwkrfpDb91G1bPMndBalnCUMGrrHPADjPHSOGm7dv50etfwA3bdnBqOKJtDTGX5hBKWdZKVCzxiaMXxu9zc8QF+0Tz9vbGP3DV6FuhPeion6rpl/WuGu2fmq2+7KDufsMerEqmZ5PuF1Q0YQ9WLSIfwPin38+Dz3GVe74g4kNz/yKXP1xKGnewQV4/EYa6XF5waQCJYVQa7/hHVz6LuZ1baFHOjVq8l65l6lL0mvONnAyKuV2zCIfWd8SWF7FZ5sICn2gW22s/hvCqV/Ueem4I8Zpgre/H5sE/ZEee77r0xD8/m75ERwp19nDI72UvB5B1pYs9qV7HejWWiQHC/bLAfllE4g+6lQ8IzYtbOROGGty2Br79qi1c0W9o0bRtQdm6psp5c96sTxw4J3FKqnoYw/vf8Ypqz8134werxCeuwJYXL9AI9yhLcic3tevXe1d1BXttsQsSNvmWZWWBh7F4GFjgoD/OQtmKTDeOHianN/d3kmE4JziG0djeq3j57hmmG8/ZGKklQUcSjAEkGuo6OGfSnrJ5azI3xt2wEfEPFOAe8yxgPm0aeIgreMIWL1LD2cQa8HR1o3IjF9/gYl8GZ83uOST3v/dbP6hWv6jyZ8LeK/puuvGYGI1P6OPKkwvWhneCq/J2NgLOC84Rp3xVD0P4q5vvrr5t8dYE0V9eXL9Dl3zJ5ZhNFIZ+IU766epI5w9p7Hh4rxekVyPctGNAzzlGGd0VM/ArAcQy5KObcEmaESd3zzUZiRNjOdn9z098sS8H8b+MDPjCC3rFJPiGWk36V08J2yrHapQOhNsNfeR5rvGzBCZnD6wbtlNl5em3796oePbl2Vd6k2zeLedN8Yvd+7BVMxXNlX1YbdOGHW3Ba1ZpBixKAoH5CNFPNJhdLh84MTNQsTMAM6PN99CiTcIAuwCa8tlAc6OXnpgxiiZ13rtMJEv6eVspllrZRH25q+WZ6VMTLv4LtP1fUww4r7IE9PRcNaCp2ph2w41qeaOxFPHk9tiYfRsZM7NU91P5NMDKBc8R+MpvX7+JTFAhZWpwPkfdwIv1RtGo8o64rnteQHq0RkH5FbMjhRHjsp4bKgTkKMC1g0np3xzPE9tE29evD023qpsK0ItqGqPJ5NxBnJhBLhjWgl3tniemmJmvzrXtKetXH4O0D/RmIv4mY8B6okSTnqjz470mxhtClSGRBHydmD+e2FhDTWKNs6i89+V/LQ8fmbd6mc33KJNN+wiTKDZU1ZiKn6Klz1b2sRS1bpCg29RVy0wXqaDpkZGzxY0c8DMa8DRJGMDZwerDEXnCtJJQoN66fuuYzhzFvFNLB6FHPb5aadsH2Hb6rQc56N++VB7u/AwDntYMJZCTVb90+rIThn3IpeGHNM/YPUtM0PM2BpkciFAT9TiJ2M+88v27zjA76/eDySVqovx/rQEw8SxJ099VRYLmDZ8mdmCJY2nvHnOVtaSdomrOhPYPf+C+3pvvmLd6+ehc+Hw1qK+YyG1OD5CeIz8LNnSjvxhIc0sr7bBxUlfOcD6Vob1AlR9rm39vt9Z1r5Xw4ao58w+XH/jY2Tn22vgJGPKMD/hiIqL9YL7WH20JD9VW91qlDYqGiKUxUjEz0agSomLT1L01jUeiG373rQ/sOLWXvdwKukmlbDMzICG1bwX3n4eD+4OP3x4svL9nVU+0rlSdz6OwTtVXlVaNqJOzGn79xPRT3/7qz848egdH6lsuYe/2a8wEjY/UCpSwwMHm66pX/oiYvdo5eaEXttQiofY8XFUcqiu788dONH+dn2HjL2z8iD3DgC+dCeu2evy5qZXd2tY7ev1mVG178KGfeujqVYCDmE/2Xoxnjkt/HKTDIl7wftkE76vtkK/GRZdHZUHp5z4j8c8cX+Lx/wDQjVGqV7z/uQAAAABJRU5ErkJggg==" alt="" width="34" height="34">AudioTwizz</a>
@@ -597,6 +686,7 @@ body.ck-open .toast{bottom:calc(190px + env(safe-area-inset-bottom,0px))}
     </div>
     <p class="winnote" id="wn1"><b>AudioTwizz is Windows-only.</b> It needs Windows 10 or 11, so open this page on your PC to install it. <button type="button" class="cpl">Copy link</button></p>
     <p class="small">Free for Windows 10 and 11 &middot; v<span class="lvv">8.0</span> &middot; 272 KB &middot; no admin rights needed</p>
+    <p class="wnew" id="wnew" hidden><b>New in v<span id="wnv"></span>:</b> <span id="wnt"></span> <a href="#updates">All changes</a></p>
   </div>
 
   <div class="stage">
@@ -668,16 +758,16 @@ body.ck-open .toast{bottom:calc(190px + env(safe-area-inset-bottom,0px))}
     <div class="bc t"><h3>Quiet in the tray</h3><p>Closes to the tray, can start with Windows, can show a small notification when the song changes, and on pause either clears your status or keeps it with a pause badge.</p></div>
   </div>
 <div class="clips">
-    <div class="clip"><div class="cs c1" role="img" aria-label="A small always-on-top player stays visible while a big window slides over the desktop"><div class="win"></div><div class="mini"><img class="cimg" alt=""><div><b class="sT">Twizzy Rich</b><span class="sA">Yeat</span></div></div></div><h3>Mini mode</h3><p>A small always-on-top card of your status that stays above everything else. Ctrl+Alt+M opens it.</p></div>
-    <div class="clip"><div class="cs c2" role="img" aria-label="Your status disappears when a game launches and returns when it closes"><div class="pill sTA">Twizzy Rich &middot; Yeat</div><div class="hid">Status hidden while the game runs</div><div class="gm">&#9654; Game.exe running</div></div><h3>Hides while you game</h3><p>Pick apps that hide your status when they open, and it comes back when they close.</p></div>
-    <div class="clip"><div class="cs c3" role="img" aria-label="A tray menu toggle hides the status instantly"><div class="pill sTA">Twizzy Rich &middot; Yeat</div><div class="menu">Privacy mode<u></u></div><div class="tray"><i></i><i></i><i class="a"></i><i></i></div></div><h3>Privacy in the tray</h3><p>Flip privacy mode from the tray icon whenever you want your status gone.</p></div>
+    <div class="clip"><div class="cs c1" role="img" aria-label="A small always-on-top player stays visible while a big window slides over the desktop"><div class="win"></div><div class="mini"><img class="cimg" alt=""><div><b data-song="mini" data-f="t" data-drive="mini" data-roll="7000">Twizzy Rich</b><span data-song="mini" data-f="a">Yeat</span></div></div></div><h3>Mini mode</h3><p>A small always-on-top card of your status that stays above everything else. Ctrl+Alt+M opens it.</p></div>
+    <div class="clip"><div class="cs c2" role="img" aria-label="Your status disappears when a game launches and returns when it closes"><div class="pill" data-song="game" data-f="ta" data-drive="game" data-roll="6000">Twizzy Rich &middot; Yeat</div><div class="hid">Status hidden while the game runs</div><div class="gm">&#9654; Game.exe running</div></div><h3>Hides while you game</h3><p>Pick apps that hide your status when they open, and it comes back when they close.</p></div>
+    <div class="clip"><div class="cs c3" role="img" aria-label="A tray menu toggle hides the status instantly"><div class="pill" data-song="tray" data-f="ta" data-drive="tray" data-roll="8500">Twizzy Rich &middot; Yeat</div><div class="menu">Privacy mode<u></u></div><div class="tray"><i></i><i></i><i class="a"></i><i></i></div></div><h3>Privacy in the tray</h3><p>Flip privacy mode from the tray icon whenever you want your status gone.</p></div>
   </div></div></section>
 
 <section id="more"><div class="wrap">
   <h2 data-eb="Overview · Details">The details that make it yours.</h2>
   <p class="sub">Small things you notice after the first week. They start moving when they scroll into view.</p>
   <div class="mg">
-    <div class="mc"><div class="mv"><div class="lpv"><small>What Discord receives</small><div class="cyc"><span>Twizzy Rich &mdash; Yeat</span><span>Yeat &middot; Up 2 M&euml;</span><span>Twizzy Rich (2:41)</span></div></div><div class="tp cyc"><code>{title} - {artist}</code><code>{artist} &middot; {album}</code><code>{title} ({duration})</code></div></div>
+    <div class="mc"><div class="mv"><div class="lpv"><small>What Discord receives</small><div class="cyc"><span data-song="cyc" data-f="t-a" data-drive="cyc" data-roll="anim">Twizzy Rich &mdash; Yeat</span><span data-song="cyc" data-f="a-al">Yeat &middot; Up 2 M&euml;</span><span data-song="cyc" data-f="t-d">Twizzy Rich (2:41)</span></div></div><div class="tp cyc"><code>{title} - {artist}</code><code>{artist} &middot; {album}</code><code>{title} ({duration})</code></div></div>
       <h3>Live preview</h3><p>See exactly what Discord receives while you edit, so you can fix a layout before anyone sees it.</p></div>
     <div class="mc"><div class="mv"><div class="qh"><i class="blk">Quiet hours</i><i class="ph"></i></div><div class="qs cyc2"><b>Live</b><b>Hidden</b></div></div>
       <h3>Quiet hours</h3><p>Pick the hours your status stays hidden. It comes back by itself when they end.</p></div>
@@ -685,9 +775,25 @@ body.ck-open .toast{bottom:calc(190px + env(safe-area-inset-bottom,0px))}
       <h3>Presets</h3><p>Save your whole setup under a name and switch back to it with one click.</p></div>
     <div class="mc"><div class="mv"><div class="rc cyc3"><b class="g"><i></i>Live on Discord</b><b class="r"><i></i>Discord closed</b><b class="y"><i></i>Reconnecting&hellip;</b><b class="g"><i></i>Live on Discord</b></div></div>
       <h3>Reconnects on its own</h3><p>If Discord closes or restarts, AudioTwizz reconnects automatically. Nothing to click.</p></div>
-    <div class="mc"><div class="mv cp"><div class="np">Twizzy Rich &mdash; Yeat</div><div class="cb">Copy now playing</div><div class="cpt">Copied!</div></div>
+    <div class="mc"><div class="mv cp"><div class="np" data-song="np" data-f="t-a">Twizzy Rich &mdash; Yeat</div><div class="cb">Copy now playing</div><div class="cpt" data-drive="np" data-roll="anim">Copied!</div></div>
       <h3>Copy now playing</h3><p>Put the current song on your clipboard from the app or the tray menu.</p></div>
   </div>
+</div></section>
+
+<section id="compare"><div class="wrap">
+  <h2 data-eb="Why AudioTwizz · Compared">Why not just use Discord's Spotify connection?</h2>
+  <p class="sub">You can, if Spotify is all you play. Discord's connection only knows about Spotify. AudioTwizz covers everything else you listen to on your PC.</p>
+  <div class="cmpw"><table class="cmp">
+    <thead><tr><th scope="col"></th><th scope="col">AudioTwizz</th><th scope="col">Discord's Spotify connection</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Music from your own files</th><td><span class="y">&#10003;</span>Yes</td><td><span class="n">&mdash;</span>Spotify tracks only</td></tr>
+      <tr><th scope="row">Which players</th><td><span class="y">&#10003;</span>VLC, MusicBee, foobar2000 and other players that show in the Windows media controls</td><td><span class="n">&mdash;</span>Spotify only</td></tr>
+      <tr><th scope="row">Cover art</th><td><span class="y">&#10003;</span>Read from your own files</td><td><span class="n">&mdash;</span>Spotify's artwork</td></tr>
+      <tr><th scope="row">Live progress bar</th><td><span class="y">&#10003;</span>Yes</td><td><span class="y">&#10003;</span>Yes</td></tr>
+      <tr><th scope="row">Pause badge and player badge</th><td><span class="y">&#10003;</span>Small icon on the cover</td><td><span class="n">&mdash;</span>Not customisable</td></tr>
+      <tr><th scope="row">Account needed</th><td><span class="y">&#10003;</span>None</td><td><span class="n">&mdash;</span>Spotify account linked to Discord</td></tr>
+    </tbody>
+  </table></div>
 </div></section>
 
 <section id="players"><div class="wrap">
@@ -696,6 +802,93 @@ body.ck-open .toast{bottom:calc(190px + env(safe-area-inset-bottom,0px))}
   <div class="chk"><input id="pq" list="pl" placeholder="VLC, MusicBee, foobar2000..." autocomplete="off" aria-label="Your music player"><datalist id="pl"></datalist>
     <div class="chips2" id="pc"></div>
     <div class="pr" id="pr" aria-live="polite"><span class="ic">?</span><div><b>Pick or type a player</b><p>You'll get a yes or no here.</p></div></div></div>
+  <p class="note compat"><b>What else it needs:</b> Windows 10 or 11 and the <b>Discord desktop app</b> running. Regular Discord, <b>PTB</b> and <b>Canary</b> all work. Discord in a web browser can't show it, because browsers aren't able to receive a status from another program.</p>
+</div></section>
+
+<section id="guides"><div class="wrap">
+  <h2 data-eb="Get started · Player setup">Set up your player.</h2>
+  <p class="sub">Most players work the moment you press play. If yours doesn't, find it below. Each card shows what AudioTwizz looks for and what to do about it.</p>
+  <div class="pgs">
+    <article class="pg" id="guide-foobar" style="--i:0">
+      <div class="pgh"><h3>foobar2000</h3><span class="tg">Progress bar</span></div>
+      <div class="demo" aria-hidden="true">
+        <div class="tb"><span class="dots"><i></i><i></i><i></i></span><span class="tt"><span class="typ" style="--n:18" data-song="g-foobar" data-f="a-t" data-drive="g-foobar" data-roll="anim">Yeat - Twizzy Rich</span><span class="suf"> [foobar2000]</span></span></div>
+        <div class="wire"><span class="pk"></span></div>
+        <div class="dc"><span class="dcl">Listening to foobar2000</span><b data-song="g-foobar" data-f="t">Twizzy Rich</b><span data-song="g-foobar" data-f="a">Yeat</span><div class="dcr"><span class="gbar"><i></i></span><span class="gtl">live progress bar</span></div><span class="eq"><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <ol class="gs">
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Play a song</b><p>Start any track in foobar2000.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Press a volume key</b><p>If the song name shows above the slider, you're done. AudioTwizz can already read it.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Add Windows media controls</b><p>foobar2000 reports to Windows media controls through an SMTC component, so install one. Without it AudioTwizz falls back to the title bar, which has to end in <code>[foobar2000]</code>, so keep that default.</p></div></li>
+      </ol>
+    </article>
+    <article class="pg" id="guide-musicbee" style="--i:1">
+      <div class="pgh"><h3>MusicBee</h3><span class="tg">Progress bar</span></div>
+      <div class="demo" aria-hidden="true">
+        <div class="tb"><span class="dots"><i></i><i></i><i></i></span><span class="tt"><span class="typ" style="--n:18" data-song="g-musicbee" data-f="a-t" data-drive="g-musicbee" data-roll="anim">Yeat - Twizzy Rich</span><span class="suf"> - MusicBee</span></span></div>
+        <div class="wire"><span class="pk"></span></div>
+        <div class="dc"><span class="dcl">Listening to MusicBee</span><b data-song="g-musicbee" data-f="t">Twizzy Rich</b><span data-song="g-musicbee" data-f="a">Yeat</span><div class="dcr"><span class="gbar"><i></i></span><span class="gtl">live progress bar</span></div><span class="eq"><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <ol class="gs">
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Play a song</b><p>Start any track in MusicBee.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Press a volume key</b><p>If the song name shows above the slider, you're done. AudioTwizz can already read it.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Keep the title bar as it is</b><p>If the volume flyout stays empty, AudioTwizz reads the title bar instead. Leave it ending in <code>- MusicBee</code> and don't hide the title.</p></div></li>
+      </ol>
+    </article>
+    <article class="pg" id="guide-vlc" style="--i:2">
+      <div class="pgh"><h3>VLC</h3><span class="tg">Progress bar</span></div>
+      <div class="demo" aria-hidden="true">
+        <div class="tb"><span class="dots"><i></i><i></i><i></i></span><span class="tt"><span class="typ" style="--n:18" data-song="g-vlc" data-f="a-t" data-drive="g-vlc" data-roll="anim">Yeat - Twizzy Rich</span><span class="suf"> - VLC media player</span></span></div>
+        <div class="wire"><span class="pk"></span></div>
+        <div class="dc"><span class="dcl">Listening to VLC</span><b data-song="g-vlc" data-f="t">Twizzy Rich</b><span data-song="g-vlc" data-f="a">Yeat</span><div class="dcr"><span class="gbar"><i></i></span><span class="gtl">live progress bar</span></div><span class="eq"><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <ol class="gs">
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Play a song</b><p>Start any track in VLC.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Press a volume key</b><p>If the song name shows above the slider, you're done. AudioTwizz can already read it.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Keep the title bar as it is</b><p>If the volume flyout stays empty, AudioTwizz reads the title bar instead. Leave it ending in <code>- VLC media player</code>, which is VLC's default.</p></div></li>
+      </ol>
+    </article>
+    <article class="pg" id="guide-aimp" style="--i:3">
+      <div class="pgh"><h3>AIMP</h3><span class="tg">Progress bar</span></div>
+      <div class="demo" aria-hidden="true">
+        <div class="tb"><span class="dots"><i></i><i></i><i></i></span><span class="tt"><span class="typ" style="--n:18" data-song="g-aimp" data-f="a-t" data-drive="g-aimp" data-roll="anim">Yeat - Twizzy Rich</span><span class="suf"> - AIMP</span></span></div>
+        <div class="wire"><span class="pk"></span></div>
+        <div class="dc"><span class="dcl">Listening to AIMP</span><b data-song="g-aimp" data-f="t">Twizzy Rich</b><span data-song="g-aimp" data-f="a">Yeat</span><div class="dcr"><span class="gbar"><i></i></span><span class="gtl">live progress bar</span></div><span class="eq"><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <ol class="gs">
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Play a song</b><p>Start any track in AIMP.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Press a volume key</b><p>If the song name shows above the slider, you're done. AudioTwizz can already read it.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Keep the title bar as it is</b><p>If the volume flyout stays empty, AudioTwizz reads the title bar instead. Leave it ending in <code>- AIMP</code>.</p></div></li>
+      </ol>
+    </article>
+    <article class="pg" id="guide-potplayer" style="--i:4">
+      <div class="pgh"><h3>PotPlayer</h3><span class="tg">Progress bar</span></div>
+      <div class="demo" aria-hidden="true">
+        <div class="tb"><span class="dots"><i></i><i></i><i></i></span><span class="tt"><span class="typ" style="--n:18" data-song="g-potplayer" data-f="a-t" data-drive="g-potplayer" data-roll="anim">Yeat - Twizzy Rich</span><span class="suf"> - PotPlayer</span></span></div>
+        <div class="wire"><span class="pk"></span></div>
+        <div class="dc"><span class="dcl">Listening to PotPlayer</span><b data-song="g-potplayer" data-f="t">Twizzy Rich</b><span data-song="g-potplayer" data-f="a">Yeat</span><div class="dcr"><span class="gbar"><i></i></span><span class="gtl">live progress bar</span></div><span class="eq"><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <ol class="gs">
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Play a song</b><p>Start any track in PotPlayer.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Press a volume key</b><p>If the song name shows above the slider, you're done. AudioTwizz can already read it.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Keep the title bar as it is</b><p>If the volume flyout stays empty, AudioTwizz reads the title bar instead. Leave it ending in <code>- PotPlayer</code>.</p></div></li>
+      </ol>
+    </article>
+    <article class="pg" id="guide-mpc" style="--i:5">
+      <div class="pgh"><h3>MPC-HC</h3><span class="tg w">Timer only</span></div>
+      <div class="demo" aria-hidden="true">
+        <div class="tb"><span class="dots"><i></i><i></i><i></i></span><span class="tt"><span class="typ" style="--n:18" data-song="g-mpc" data-f="a-t" data-drive="g-mpc" data-roll="anim">Yeat - Twizzy Rich</span><span class="suf"> - MPC-HC</span></span></div>
+        <div class="wire"><span class="pk"></span></div>
+        <div class="dc"><span class="dcl">Listening to MPC-HC</span><b data-song="g-mpc" data-f="t">Twizzy Rich</b><span data-song="g-mpc" data-f="a">Yeat</span><div class="dcr"><span class="gt">0:42</span><span class="gtl">elapsed</span></div><span class="eq"><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <ol class="gs">
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Play a song</b><p>Start any track in MPC-HC.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Press a volume key</b><p>If the song name shows above the slider, you're done. AudioTwizz can already read it.</p></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><div><b>Expect a timer, not a bar</b><p>MPC-HC doesn't report to Windows media controls, so AudioTwizz reads the title bar, which ends in <code>- MPC-HC</code>. Discord then shows an elapsed timer instead of a progress bar.</p></div></li>
+      </ol>
+    </article>
+  </div>
+  <p class="note priv">Still nothing? Open <b>Settings</b> in AudioTwizz and check <b>Window title order</b>, which tells the title-bar backup which way round your artist and title are. Then try the <a href="#help">troubleshooter</a>.</p>
 </div></section>
 
 <section id="download"><div class="wrap">
@@ -779,25 +972,34 @@ body.ck-open .toast{bottom:calc(190px + env(safe-area-inset-bottom,0px))}
     <div><h3>Your status goes to Discord</h3><p>The song title, artist, album and progress, so Discord can show them on your profile.</p></div>
     <div><h3>Cover art is uploaded to an image host</h3><p>Discord can only show a picture it can download itself. So a cover read from your file is shrunk to 512x512 and uploaded to an anonymous image host (litterbox, catbox, uguu, tmpfiles or 0x0.st), and the link is passed to Discord. Anyone with that link can see the image. This is on by default. Turn it off in Settings with <b>Upload covers from my files so Discord can show them</b>.</p></div>
     <div><h3>Missing details are looked up online</h3><p>The song title and artist are sent to iTunes and Deezer to fill in missing covers, albums and lengths. Switch it off with <b>Fill in missing covers, albums and lengths</b>. Links for the "Open this song" button come from song.link.</p></div>
-    <div id="cookies"><h3>Cookies and browser storage</h3><p>This website sets no cookies and has no ads, analytics or trackers. If you allow it, your light or dark choice is saved in your browser's local storage, along with your cookie choice. Nothing is sent anywhere. Like any website, the page loads its fonts from Google Fonts and its version info from GitHub Pages, so those services can see your IP address. <a href="#" data-ck-open>Change cookie settings</a>.</p></div>
+    <div id="cookies"><h3>Cookies and browser storage</h3><p>This website sets no cookies and has no ads, analytics or trackers. If you allow it, your light or dark choice is saved in your browser's local storage, along with your cookie choice. Nothing is sent anywhere. Like any website, the page loads its fonts from Google Fonts and its version info from a third-party update server, so those services can see your IP address. <a href="#" data-ck-open>Change cookie settings</a>.</p></div>
     <div><h3>Update checks go to our server</h3><p>The app asks the update server whether a newer version exists, and which older versions you can go back to. Your settings, including your Application ID, stay in a folder on your PC.</p></div>
   </div>
 </div></section>
 
+<section id="uninstall"><div class="wrap">
+  <h2 data-eb="Trust · Uninstall & cleanup">Leaving? Here's how to remove everything.</h2>
+  <p class="sub">Three steps take AudioTwizz and what it stored off your PC.</p>
+  <ol class="steps2">
+    <li><h3>Run the uninstaller</h3><p>Close AudioTwizz (your Discord status disappears with it), then run <a href="download/AudioTwizzUninstall.exe" download>AudioTwizzUninstall.exe</a>. It removes the app, its shortcuts and the startup entry.</p></li>
+    <li><h3>Delete your saved data (optional)</h3><p>Settings, logs and cached cover links live in their own folder. Paste <code>%APPDATA%\LocalPresence</code> into the File Explorer address bar and delete the folder. It holds your settings, your Application ID, the error log, your music library cache, the cache of cover links and, if you connected Spotify, the saved sign-in.</p></li>
+    <li><h3>Cover copies on image hosts</h3><p>If you left cover uploads on, small copies of your covers were put on anonymous image hosts, and AudioTwizz can't delete them for you. Most expire on their own: uguu after about 3 hours, tmpfiles after 1 hour, litterbox after 72 hours and 0x0.st after about 20 days. Only catbox keeps files until someone removes them. Switch off <b>Upload covers from my files so Discord can show them</b> in Settings, then Display, before you uninstall if you don't want any more uploaded.</p></li>
+  </ol>
+</div></section>
+
 <section id="contact"><div class="wrap">
   <h2 data-eb="Support · Contact">Need help or found a bug?</h2>
-  <p class="sub">Tried the checklist above? Message me on Discord or open an issue on GitHub. In AudioTwizz open Settings, then About, press <b>Copy diagnostic information</b> and paste it in your message.</p>
+  <p class="sub">Tried the checklist above? Message me on Discord. In AudioTwizz open Settings, then About, press <b>Copy diagnostic information</b> and paste it in your message.</p>
   <div class="contact">
     <div class="cbox"><span>Discord</span><b>@overseas</b><button id="cp" type="button">Copy</button></div>
-    <a class="btn ghost" href="https://github.com/cr1m999/audiotwizz-updates/issues" target="_blank" rel="noopener">Report a bug on GitHub</a>
     <a class="btn ghost" href="logo.png" download="AudioTwizz-logo.png">Download logo (PNG)</a>
   </div>
 </div></section>
 
 <div class="wrap"><footer class="ft">
   <div class="ft-brand"><b>AudioTwizz</b><p>Show what you're listening to on Discord, taken straight from your own music files.</p><span>v<span class="lvv">8.0</span> &middot; Made by @overseas</span></div>
-  <div class="ft-col"><h4>Product</h4><a href="#features">Features</a><a href="#players">Compatibility</a><a href="#download">Download</a><a href="#install">Setup</a></div>
-  <div class="ft-col"><h4>Support</h4><a href="#help">Troubleshooting</a><a href="#updates">Updates</a><a href="#contact">Contact</a></div>
+  <div class="ft-col"><h4>Product</h4><a href="#features">Features</a><a href="#compare">Compare</a><a href="#players">Compatibility</a><a href="#guides">Player setup</a><a href="#download">Download</a><a href="#install">Setup</a></div>
+  <div class="ft-col"><h4>Support</h4><a href="#help">Troubleshooting</a><a href="#updates">Updates</a><a href="#uninstall">Uninstall</a><a href="#contact">Contact</a><a id="donate" href="#" target="_blank" rel="noopener" hidden>Support the project</a></div>
   <div class="ft-col"><h4>Legal</h4><a href="#privacy">Privacy</a><a href="#cookies">Cookies</a><a href="#" data-ck-open>Cookie settings</a><a href="#top">Back to top</a></div>
   <span class="fine">Not affiliated with or endorsed by Discord or Spotify.</span>
 </footer></div>
@@ -886,7 +1088,18 @@ function rb1(){var o=olds();rbd.innerHTML='<div class="tb">AudioTwizz &middot; S
    $("rbt").textContent=st[k];$("rbp").style.width=((k+1)/st.length*100)+"%";k++;setTimeout(step,900)})()}}
 rb1();
 // live version from the update server
+// Known-issues banner. Add a "notice" to the update API's /latest reply to show it; remove it to hide it.
+//   "notice": "Discord is having an outage"            or            "notice": {"text":"v8.1 fixes the cover bug","level":"info","link":"#updates","link_text":"What's new"}
+// level: "info" (default), "warn" or "error". link may be https://... or #section. Try it from the console: showNotice({text:"Test",level:"warn"})
+window.showNotice=function(n){try{if(typeof n==="string")n={text:n};if(!n||typeof n.text!=="string"||!n.text.trim())return;
+ var b=$("nb"),lv=/^(warn|error)$/.test(n.level)?n.level:"";b.className="nb "+lv;$("nbt").textContent=n.text.trim().slice(0,200);
+ var a=$("nbl"),u=String(n.link||"");if(/^(https:\/\/|#)/.test(u)){a.href=u;a.textContent=String(n.link_text||"Details").slice(0,30);a.hidden=false;if(u.charAt(0)!=="#"){a.target="_blank";a.rel="noopener"}}else a.hidden=true;
+ b.hidden=false;void b.offsetWidth;b.classList.add("in")}catch(e){}};
+$("nbx").onclick=function(){$("nb").hidden=true};
+// Donate link: paste your Ko-fi / Buy Me a Coffee / etc. URL between the quotes and the footer link appears
+var DONATE_URL="";if(DONATE_URL){var dn=$("donate");dn.href=DONATE_URL;dn.hidden=false}
 fetch("https://cr1m999.github.io/audiotwizz-updates/api/latest",{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){
+ if(d&&d.notice)showNotice(d.notice);
  if(!d||!d.version)return;LV=String(d.version).replace(/[^\w.\-]/g,"").slice(0,16)||LV;$("lv").textContent="v"+LV;
  document.querySelectorAll(".lvv").forEach(function(e){e.textContent=LV});
  if(d.published_at)$("ld").textContent=" \u00b7 "+new Date(d.published_at*1000).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"});
@@ -895,6 +1108,8 @@ fetch("https://cr1m999.github.io/audiotwizz-updates/api/latest",{cache:"no-store
  var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle("in",e.isIntersecting)})},{threshold:.25});m.forEach(function(e){io.observe(e)})})();
 fetch("https://cr1m999.github.io/audiotwizz-updates/api/versions?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){var a=d&&(d.versions||d);if(!Array.isArray(a))return;VERS=a;var ul=$("clu"),n=0;
  a.forEach(function(e){var v=String(e.version||"").replace(/[^\w.\-]/g,"").slice(0,16),t=String(e.notes||"").trim().slice(0,200);if(!v||!t||n>=3)return;n++;
+  if(n===1){var one=t.split(/\r?\n/)[0].replace(/^[\s\-*\u2022]+/,"");if(one.length>130)one=one.slice(0,127).replace(/\s+\S*$/,"")+"\u2026";
+   $("wnv").textContent=v;$("wnt").textContent=one;$("wnew").hidden=false}
   var li=document.createElement("li"),b=document.createElement("b");b.textContent="v"+v;li.appendChild(b);
   if(e.published_at){var sp=document.createElement("span");sp.textContent=new Date(e.published_at*1000).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"});li.appendChild(sp)}
   li.appendChild(document.createElement("br"));li.appendChild(document.createTextNode(t));ul.appendChild(li)});
@@ -958,10 +1173,11 @@ var P=[["Spotify","spotify","Reports to Windows media controls, with its window 
 ["MPC-HC","mpc|media player classic","Works by reading the player's window title, so Discord shows an elapsed timer instead of a progress bar."],
 ["Windows Media Player","wmp|windows media|media player|groove","Reports to Windows media controls, so it works."],
 ["Browsers","chrome|edge|firefox|brave|opera|browser|youtube|soundcloud","Tabs that report to Windows media controls, like YouTube or SoundCloud, work.",1]];
+var G={"VLC":"vlc","MusicBee":"musicbee","foobar2000":"foobar","AIMP":"aimp","PotPlayer":"potplayer","MPC-HC":"mpc"};
 var pr=$("pr"),pq=$("pq"),pl=$("pl"),pc=$("pc");
 var show=function(c,i,t,d){pr.className="pr "+c;pr.innerHTML='<span class="ic">'+i+'</span><div><b>'+t+'</b><p>'+d+'</p></div>'};
 var chk=function(){var q=pq.value.toLowerCase().trim();if(!q)return show("","?","Pick or type a player","You'll get a yes or no here.");
-for(var i=0;i<P.length;i++)if(new RegExp(P[i][1]).test(q.replace(/[^a-z0-9 ]/g,"")))return show("y","\u2713","Yes, "+(P[i][3]?P[i][0].toLowerCase()+" work":P[i][0]+" works"),P[i][2]);
+for(var i=0;i<P.length;i++)if(new RegExp(P[i][1]).test(q.replace(/[^a-z0-9 ]/g,"")))return show("y","\u2713","Yes, "+(P[i][3]?P[i][0].toLowerCase()+" work":P[i][0]+" works"),P[i][2]+(G[P[i][0]]?' <a href="#guide-'+G[P[i][0]]+'">Setup tips</a>':""));
 show("m","~","Not on my list, but it may still work","Press play, then open the Windows volume flyout. If your song shows up there, AudioTwizz can read it. <a href=\"#contact\">Tell me which player you use</a> and I'll add it.")};
 P.forEach(function(p){var o=document.createElement("option");o.value=p[0];pl.appendChild(o);var b=document.createElement("button");b.type="button";b.textContent=p[0];b.onclick=function(){pq.value=p[0];chk()};pc.appendChild(b)});
 pq.addEventListener("input",chk);
@@ -1076,6 +1292,40 @@ if("IntersectionObserver"in window){var cur=null;var io=new IntersectionObserver
  var a=rail.querySelector('[data-s="'+e.target.id+'"]');if(a&&a!==cur){if(cur)cur.classList.remove("act");a.classList.add("act");cur=a}})},{rootMargin:"-45% 0px -50% 0px"});
  Array.prototype.forEach.call(d.querySelectorAll("section[id]"),function(x){io.observe(x)})}
 })();
+</script>
+
+<script>
+/* player setup cards: reveal once, run the loop only while on screen */
+(function(){var c=document.querySelectorAll(".pg");if(!c.length)return;
+ if(!("IntersectionObserver"in window)){c.forEach(function(e){e.classList.add("seen","run")});return}
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add("seen");e.target.classList.toggle("run",e.isIntersecting)})},{threshold:.2});
+ c.forEach(function(e){io.observe(e)});
+ // arriving from the checker's "Setup tips" link: show that card straight away
+ function jump(){var t=location.hash&&document.querySelector(".pg"+location.hash.replace(/[^#\w-]/g,""));if(t)t.classList.add("seen")}
+ jump();addEventListener("hashchange",jump)})();
+</script>
+
+<script>
+/* Every song mention on the page is its own slot with its own random pick from the Up 2 Më tracklist.
+   Slots reroll on their own schedule (when their animation loops, or on a timer), and the shared deck
+   means two slots show the same song only after all 22 have been used. */
+(function(){
+var SONGS=[["Cmon","Yeat","Up 2 M\u00eb",103],["Morning mudd","Yeat","Up 2 M\u00eb",144],["Got rich","Yeat","Up 2 M\u00eb",122],["L\u00ebt ya know","Yeat","Up 2 M\u00eb",154],["Stay\u00ebd tha same","Yeat","Up 2 M\u00eb",156],["G\u00ebt Busy","Yeat","Up 2 M\u00eb",158],["Rokstar","Yeat","Up 2 M\u00eb",134],["Tr\u00ebndy way (feat. SeptembersRich)","Yeat","Up 2 M\u00eb",200],["Sw\u00ebrved It","Yeat","Up 2 M\u00eb",137],["Ya Ya","Yeat","Up 2 M\u00eb",139],["U could t\u00ebll","Yeat","Up 2 M\u00eb",149],["Factz","Yeat","Up 2 M\u00eb",161],["Bak on \u00ebm","Yeat","Up 2 M\u00eb",120],["H\u00eby","Yeat","Up 2 M\u00eb",158],["Turban","Yeat","Up 2 M\u00eb",156],["Twizzy Rich","Yeat","Up 2 M\u00eb",161],["Told ya","Yeat","Up 2 M\u00eb",189],["Mon\u00eby so big","Yeat","Up 2 M\u00eb",160],["D\u00ebserve it","Yeat","Up 2 M\u00eb",111],["Kant chang\u00eb","Yeat","Up 2 M\u00eb",130],["Callin m\u00eb","Yeat","Up 2 M\u00eb",155],["Lying 4 fun","Yeat","Up 2 M\u00eb",304]];
+var deck=[],last={},rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function take(slot){if(deck.length<2)deck=shuffle(SONGS.map(function(_,i){return i}).concat(deck));
+ var i=deck.pop();if(i===last[slot]&&deck.length)i=deck.pop();last[slot]=i;return SONGS[i]}
+function m(sec){return Math.floor(sec/60)+":"+("0"+sec%60).slice(-2)}
+function txt(s,f){switch(f){case"t":return s[0];case"a":return s[1];case"al":return s[2];case"ta":return s[0]+" \u00b7 "+s[1];
+ case"t-a":return s[0]+" \u2014 "+s[1];case"a-al":return s[1]+" \u00b7 "+s[2];case"t-d":return s[0]+" ("+m(s[3])+")";case"a-t":return s[1]+" - "+s[0]}return s[0]}
+function roll(slot){var s=take(slot);document.querySelectorAll('[data-song="'+slot+'"]').forEach(function(e){var t=txt(s,e.getAttribute("data-f"));e.textContent=t;
+ if(e.classList.contains("typ")){e.style.setProperty("--n",t.length);e.style.animationTimingFunction="steps("+t.length+",end)"}})}
+var slots={};document.querySelectorAll("[data-song]").forEach(function(e){slots[e.getAttribute("data-song")]=1});
+Object.keys(slots).forEach(roll);
+if(rm)return;
+document.querySelectorAll("[data-drive]").forEach(function(e,n){var slot=e.getAttribute("data-drive"),r=e.getAttribute("data-roll");
+ if(r==="anim")e.addEventListener("animationiteration",function(ev){if(ev.target===e)roll(slot)});
+ else setInterval(function(){if(!document.hidden)roll(slot)},+r||7000)})})();
 </script>
 </body>
 </html>
